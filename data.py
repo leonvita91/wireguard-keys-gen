@@ -73,11 +73,11 @@ def add_ips(
     #delete the keys
     subprocess.run("rm privatekey.txt publickey.txt",shell=True)
     
-    #should deltet after finish
-    connect.execute("SELECT rowid, * FROM VPN") #search
-    items = connect.fetchall()
-    for item in items:
-         print(item)
+    # #should deltet after finish
+    # connect.execute("SELECT rowid, * FROM VPN") #search
+    # items = connect.fetchall()
+    # for item in items:
+    #      print(item)
 
 #-----------------------------------------------------
 
