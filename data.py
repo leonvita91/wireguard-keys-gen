@@ -15,9 +15,19 @@ connect.execute("""CREATE TABLE IF NOT EXISTS VPN (
       date blob,
       time blob
       )""")
-
-def user_input():
-    #read keys 
+class colors:
+    pink = '\033[95m'
+    blue = '\033[94m'
+    cyan = '\033[96m'
+    green = '\033[92m'
+    yellow = '\033[93m'
+    red = '\033[91m'
+    end = '\033[0m'
+    bold = '\033[1m'
+    uderline = '\033[4m'
+# user input username & ip
+def Vpn_input():
+    #read keys
     subprocess.run("wg genkey | tee privatekey | wg pubkey > publickey",
     shell=True,capture_output=True
     )
@@ -32,14 +42,29 @@ def user_input():
         public = pk.read()
     with open("privatekey.txt","r") as prk:
         private = prk.read()
-    # user input
-    user_name = input(str("Insert username: "))
-    user_ips = input(str("Insert IP:"))
+    #User_name_input & user_input ip
+    user_name = input(str("Insert username: ")) #15
+    user_ips = input(str("Insert IP:"))# 20
+    username_len_input = len(user_name)
+    userip_len_input = len(user_ips)
+    #check if the username & ip not too much.
+    while int(username_len_input) > 10 or int(userip_len_input) > 15:
+        subprocess.run('clear')
+        print(colors.bold,colors.red,'WARNING!!',colors.end)
+        print('You have entered:')
+        print('Username_Charactor=',username_len_input,'IP_length=',userip_len_input)
+        print(colors.bold,colors.cyan,'\nUSER_NAME 10 CHARACTOR MAX && IPs 15 DIGIT MAX.',colors.end)
+        user_name = input(str("Insert username: "))
+        user_ips = input(str("Insert IP:"))
+        username_len_input = len(user_name)
+        userip_len_input = len(user_ips)
+        
     user_public_key = public
     user_private_key = private
     date = dates
-    time = times 
-    # reverse function
+    time = times
+    
+    # reverse function from add_ips function
     add_ips(
     user_name,
     user_ips,
@@ -48,7 +73,7 @@ def user_input():
     date,
     time
     )
-#add users & ips & keys & date & time into db
+#add users & ips & keys & date & time into Database
 def add_ips(
     user_name,
     user_ips,
@@ -73,11 +98,11 @@ def add_ips(
     #delete the keys
     subprocess.run("rm privatekey.txt publickey.txt",shell=True)
     
-    # #should deltet after finish
-    # connect.execute("SELECT rowid, * FROM VPN") #search
-    # items = connect.fetchall()
-    # for item in items:
-    #      print(item)
+    #should deltet after finish
+    connect.execute("SELECT rowid, * FROM VPN") #search
+    items = connect.fetchall()
+    for item in items:
+         print(item)
 
 #-----------------------------------------------------
 
@@ -101,7 +126,7 @@ def add_ips(
 #         break
 
 # #call fucn
-user_input()
+Vpn_input()
 # checking()
 
 #Close the db after finishing
