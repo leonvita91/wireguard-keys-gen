@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+import time
 
-
-def cat_search():
+def cat_search_user():
 
 	print("""  ,-.       _,---._ __  / \ """)
 	print(""" /  )    .-'       `./ /   \  """)
@@ -9,11 +9,29 @@ def cat_search():
 	print(""" \  `-"             \ \   / |""")
 	print("""  `.              ,  \ \ /  |""")
 	print("""   /`.          ,'-`----Y   |""")
-	print("""  (            ;   cat  |   '""")
-	print("""  |  ,-.    ,-' search  |  /""")
-	print("""  |  | (   |   for IP   | /""")
-	print("""  )  |  \  `.___________|/""")
+	print("""  (            ; Cat    |   '""")
+	print("""  |  ,-.    ,-' Found   |  /""")
+	print("""  |  | (   |   Exsiting | /""")
+	print("""  )  |  \  `.__Username_|/""")
 	print("""  `--'   `--" """"")
+	time.sleep(0.5)
+
+def cat_search_ips():
+
+	print("""  ,-.       _,---._ __  / \ """)
+	print(""" /  )    .-'       `./ /   \  """)
+	print("""(  (   ,'            `/    /|""")
+	print(""" \  `-"             \ \   / |""")
+	print("""  `.              ,  \ \ /  |""")
+	print("""   /`.          ,'-`----Y   |""")
+	print("""  (            ; Cat    |   '""")
+	print("""  |  ,-.    ,-' Found   |  /""")
+	print("""  |  | (   |   Exsiting | /""")
+	print("""  )  |  \  `.__Username_|/""")
+	print("""  `--'   `--" """"")
+	time.sleep(0.5)
+
+
 
 def cat_done():
 	print("""  /\      /|""")
@@ -27,4 +45,4 @@ def cat_done():
 	print("""  |  \_/  |/ /  \_\_/ )""")
 	print("""   \__/  /(_/     \__/""")
 	print("""    (__/""")
-	print("All Done!")
+	print("You Good To Go !!")

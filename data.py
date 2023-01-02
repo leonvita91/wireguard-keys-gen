@@ -1,6 +1,9 @@
 import sqlite3
 import subprocess
-from datetime import datetime 
+import cat
+import time
+from datetime import datetime
+
 
 # add color to texts.
 class colors:
@@ -17,7 +20,6 @@ class colors:
 #initialize database
 create = sqlite3.connect("database.db")
 connect = create.cursor()
-
 #Create TABLE only IF NOT Exist
 connect.execute("""CREATE TABLE IF NOT EXISTS VPN (
       user_vpn text,
@@ -27,11 +29,11 @@ connect.execute("""CREATE TABLE IF NOT EXISTS VPN (
       date blob,
       time blob
       )""")
-
 # user input username & ip.
 def Vpn_input():
     #define global var
-    global user_name,user_ips,user_public_key,user_private_key,date,time
+    global user_name,user_ips,user_public_key,user_private_key,date,time,subnet
+    subnet = '/23'
     #Generate keys
     subprocess.run("wg genkey | tee privatekey | wg pubkey > publickey",
     shell=True,capture_output=True
@@ -72,49 +74,57 @@ def Vpn_input():
         userip_len_input = len(user_ips)
     # end function.
 
-def add_ips():
+def insert_data():
     #insert the values to VPN TABLE
     connect.execute("INSERT INTO VPN VALUES (?,?,?,?,?,?)",
     (
     (user_name),
-    (user_ips + "/24"),
+    (user_ips + subnet),
     ('Public_key= ' + user_public_key.replace('\n', '')), #replace char \n to normal key
     ('Private_key' + user_private_key.replace('\n', '')), #replace char \n to normal key
     ('Date: ' + date),
     ('Time: ' + time)
     ))
-    create.commit() #Commit into db
+    create.commit() # Commit into db
     subprocess.run("rm privatekey.txt publickey.txt",shell=True) #delete the keys
 #end function.
 
-def checking():
+def check_username():
     connect.execute("SELECT user_vpn FROM VPN")
     search = connect.fetchall()
     for searchs in search:
         user = "".join(searchs) # convert from tuple to string
         if user == user_name:
-            print('name exsit')
+            cat.cat_search()
             Vpn_input() #if the name exist it will return to Vpn_input function again.
-            checking() # checking again
+            check_username() # checking again
         else:
             print('done')
             break
+def check_ip():
+    connect.execute("SELECT user_ips FROM VPN")
+    search = connect.fetchall()
+    for searchs in search:
+        IP = "".join(searchs) # convert from tuple to string
 
-        
-#add users & ips & keys & date & time into Database
-    
-    
-#Call functions
+        if IP == (user_ips + subnet):
+            print('ip exist')
+        # IP = "".join(searchs) # convert from tuple to string
+        # if IP == user_ips:
+        #     print('ip exist')
+
+
+
+
+
+#########** Call functions **##########
 Vpn_input() # call input function
-checking() # call checking function
-add_ips() # call add to database function
+# check_username() # call check_username function
+check_ip() # call check_ip function
+# insert_data() # call add to database function
 
 
-
-
-#-----------------------------------------------------
-
-
+#--------------------------NOTES---------------------------
 #Close the db after finishing
 #create.close()
     #Notes:
