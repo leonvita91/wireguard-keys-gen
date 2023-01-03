@@ -33,7 +33,7 @@ connect.execute("""CREATE TABLE IF NOT EXISTS VPN (
 def Vpn_input():
     #define global var
     global user_name,user_ips,user_public_key,user_private_key,date,time,subnet
-    subnet = '/23'
+    subnet = '/24' #Change subnet mask based on your need.
     #Generate keys
     subprocess.run("wg genkey | tee privatekey | wg pubkey > publickey",
     shell=True,capture_output=True
@@ -95,7 +95,8 @@ def check_username():
     for searchs in search:
         user = "".join(searchs) # convert from tuple to string
         if user == user_name:
-            cat.cat_search()
+            cat.cat_search_user()
+            print('****Try Again:****')
             Vpn_input() #if the name exist it will return to Vpn_input function again.
             check_username() # checking again
         else:
@@ -106,22 +107,19 @@ def check_ip():
     search = connect.fetchall()
     for searchs in search:
         IP = "".join(searchs) # convert from tuple to string
-
         if IP == (user_ips + subnet):
-            print('ip exist')
-        # IP = "".join(searchs) # convert from tuple to string
-        # if IP == user_ips:
-        #     print('ip exist')
-
-
-
+            cat.cat_search_ips()
+            print('****Try Again:****')
+            Vpn_input()
+            check_ip()
 
 
 #########** Call functions **##########
 Vpn_input() # call input function
-# check_username() # call check_username function
+check_username() # call check_username function
 check_ip() # call check_ip function
-# insert_data() # call add to database function
+cat.cat_done()
+insert_data() # call add to database function
 
 
 #--------------------------NOTES---------------------------

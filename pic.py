@@ -1,6 +1,22 @@
 #!/usr/bin/env python3
 import time
 
+def Creator():
+	print("""  _/|       |\_ """"")
+	print(""" /  |       |  \ """"")
+	print("""|    \     /    | """"")
+	print("""|  \ /     \ /  | """"")
+	print("""| \  |     |  / | """"")
+	print("""| \ _\_/^\_/_ / | """"")
+	print("""|    --\//--    | """"")
+	print(""" \_  \     /  _/ """"")
+	print("""   \__  |  __/ """"")
+	print("""      \ _ / """"")
+	print("""     _/   \_   Created By:Phoeix """"")
+	print("""    / _/|\_ \  Github:leonvita91 """"")
+	print("""     /  |  \   Project:VPN_Clients_Generator """)
+	print("""      / v \	""""")
+
 def cat_search_user():
 
 	print("""  ,-.       _,---._ __  / \ """)
@@ -27,7 +43,7 @@ def cat_search_ips():
 	print("""  (            ; Cat    |   '""")
 	print("""  |  ,-.    ,-' Found   |  /""")
 	print("""  |  | (   |   Exsiting | /""")
-	print("""  )  |  \  `.__Username_|/""")
+	print("""  )  |  \  `._____IP____|/""")
 	print("""  `--'   `--" """"")
 	time.sleep(0.5)
 
@@ -46,3 +62,4 @@ def cat_done():
 	print("""   \__/  /(_/     \__/""")
 	print("""    (__/""")
 	print("You Good To Go !!")
+
