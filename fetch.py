@@ -99,7 +99,7 @@ def fetch_user_ip_public_key():
 
 
 # call functions for test 
-# fetch_all()
+fetch_all()
 # fetch_username()
 # fetch_IP()
 # fetch_public_key()

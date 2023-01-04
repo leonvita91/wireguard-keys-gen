@@ -15,7 +15,7 @@ import fetch
 # add.insert_data() 
 
 #########** Call functions from add **##########
-# fetch.fetch_all()
+fetch.fetch_all()
 # fetch.fetch_username()
 # fetch.fetch_IP()
 # fetch.fetch_public_key()
