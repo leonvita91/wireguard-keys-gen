@@ -4,27 +4,28 @@ import add
 
 # fetch all
 def fetch_all():
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
     add.connect.execute("SELECT * FROM VPN")
     fetch = add.connect.fetchall()
-    print('Start fetching........')
-    for i in fetch:
-        print('------------------------------------------------------------------')
-        print('Username   IP_address    Public_key                  Private_key  |')
-        print('                                                                  |')
-        print('------------------------------------------------------------------')
-        print(i)
+    print('Start fetching........\n'
+            '---------------------')
+    for x , y in zip(fetch_row , fetch):
+        print('----------------------------------------------------------------------------------------------')
+        print('RowID:',x,'  '.join(y)) 
         add.time.sleep(0.2)
+    print('------------------------------------------------------------------')
     print('\nDone Done Done !!')
 
 # fetch username
 def fetch_username():
-    add.connect.execute("SELECT user_vpn FROM VPN")
+    add.connect.execute("SELECT rowid, user_vpn FROM VPN")
     fetch = add.connect.fetchall()
-    print('Start fetching........')
-    for i in fetch:
+    print('Start fetching........\n'
+          '------------------')
+    for x in fetch:
         print('----------')
-        print('Username:')
-        print(i)
+        print('RowID:',x)
         add.time.sleep(0.2)
     print('\nDone Done Done !!')
 
@@ -32,60 +33,76 @@ def fetch_username():
 def fetch_IP():
     add.connect.execute("SELECT user_ips FROM VPN")
     fetch = add.connect.fetchall()
-    print('Start fetching........')
-    for i in fetch:
-        print('------------')
-        print('IP_address: |')
-        print('------------')
-        print(i)
-        add.time.sleep(0.2)
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
+    print('Start fetching........\n'
+          '------------------')
+    for x,y in zip(fetch_row,fetch):
+            # st = str(x)
+            print('RowID:',x,''.join(y))
+            add.time.sleep(0.2)
+    print('------------')
     print('\nDone Done Done !!')
 
 # fetch Public keys
-
 def fetch_public_key():
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
     add.connect.execute("SELECT public_key FROM VPN")
     fetch = add.connect.fetchall()
-    print('Start fetching........')
-    for i in fetch:
+    print('Start fetching........\n'
+          '------------------')
+    for x , y in zip(fetch_row , fetch):
         print('-------------------------------------------------------------')
-        print(i)
+        print('RowID:',x,''.join(y))
         add.time.sleep(0.2)
     print('\nDone Done Done !!\n')
 # fetch Private keys
 def fetch_private_key():
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
     add.connect.execute("SELECT private_key FROM VPN")
     fetch = add.connect.fetchall()
-    print('Start fetching........')
-    for i in fetch:
+    print('Start fetching........\n'
+          '------------------')
+    for x , y in zip(fetch_row , fetch):
         print('-------------------------------------------------------------')
-        print(i)
+        print('RowID:',x,''.join(y))
         add.time.sleep(0.2)
     print('\nDone Done Done !!\n')
 
 # fetch username and ip
-def user_and_ip():
-    add.connect.execute("SELECT user_vpn FROM VPN")
-    fetch_user = add.connect.fetchall()
-    add.connect.execute("SELECT user_ips FROM VPN")
-    fetch_ips = add.connect.fetchall()
-    for user in fetch_user:
-        for ip in fetch_ips:
-            print('--------')
-            print('User-Name:',''.join(user))
-            print('User-IP:',''.join(ip))
-            add.time.sleep(0.2)
-
+def fetch_user_and_ip():
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
+    add.connect.execute("SELECT user_vpn , user_ips FROM VPN")
+    fetch = add.connect.fetchall()
+    for x , y in zip(fetch_row,fetch):
+        print('--------')
+        print('RowID:',x,' || '.join(y))
+        add.time.sleep(0.2)
+    print('--------')
+    print('\nDone Done Done !!\n')
 # fetch username & IP & public key
-def user_ip_public_key():
+def fetch_user_ip_public_key():
+    add.connect.execute("SELECT rowid FROM VPN")
+    fetch_row = add.connect.fetchall()
     add.connect.execute("SELECT user_vpn , user_ips , public_key FROM VPN")
     fetch = add.connect.fetchall()
     print('fetching......')
-    for info in fetch:
+    for x , y in zip(fetch_row, fetch):
         print('---------------------------------------------------------------------------------')
-        print('username:  IP:               ')
-        print(' ||   '.join(info))
+        print('RowID:',x,' ||   '.join(y))
         add.time.sleep(0.1)
     print('------------------------------------------------------------------------------------')
-user_ip_public_key()
+    print('\nDone Done Done !!\n')
 
+
+# call functions for test 
+# fetch_all()
+# fetch_username()
+# fetch_IP()
+# fetch_public_key()
+# fetch_private_key()
+# fetch_user_and_ip()
+# fetch_user_ip_public_key()
