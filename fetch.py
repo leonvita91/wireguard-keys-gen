@@ -64,7 +64,7 @@ def fetch_private_key():
     print('\nDone Done Done !!\n')
 
 # fetch username and ip
-def user_ip():
+def user_and_ip():
     add.connect.execute("SELECT user_vpn FROM VPN")
     fetch_user = add.connect.fetchall()
     add.connect.execute("SELECT user_ips FROM VPN")
@@ -75,4 +75,17 @@ def user_ip():
             print('User-Name:',''.join(user))
             print('User-IP:',''.join(ip))
             add.time.sleep(0.2)
-user_ip()
+
+# fetch username & IP & public key
+def user_ip_public_key():
+    add.connect.execute("SELECT user_vpn , user_ips , public_key FROM VPN")
+    fetch = add.connect.fetchall()
+    print('fetching......')
+    for info in fetch:
+        print('---------------------------------------------------------------------------------')
+        print('username:  IP:               ')
+        print(' ||   '.join(info))
+        add.time.sleep(0.1)
+    print('------------------------------------------------------------------------------------')
+user_ip_public_key()
+
