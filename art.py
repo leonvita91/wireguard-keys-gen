@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import time
 
 def creator():
 	print("""  _/|       |\_ """"")
@@ -12,12 +11,14 @@ def creator():
 	print(""" \_  \     /  _/ """"")
 	print("""   \__  |  __/ """"")
 	print("""      \ _ / """"")
-	print("""     _/   \_   Created By:Phoeix """"")
+	print("""     _/   \_   Created By:█░░ █▀▀ █▀▀█ █▀▀▄ 
+    / _/|\_ \	      	  █░░ █▀▀ █░░█ █░░█ 
+    / _/|\_ \	          ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░▀ """"")
 	print("""    / _/|\_ \  Github:leonvita91 """"")
 	print("""     /  |  \   Project:VPN_Clients_Generator """)
 	print("""      / v \	""""")
 
-def cat_search_user():
+def cat_search_user(): 
 
 	print("""  ,-.       _,---._ __  / \ """)
 	print(""" /  )    .-'       `./ /   \  """)

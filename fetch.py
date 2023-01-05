@@ -1,3 +1,4 @@
+import pandas as pd
 import add
 
 # functions to fetch all kind of data
@@ -99,8 +100,6 @@ def fetch_user_ip_public_key():
 
 
 # call functions for test 
-fetch_all()
-# fetch_username()
 # fetch_IP()
 # fetch_public_key()
 # fetch_private_key()
