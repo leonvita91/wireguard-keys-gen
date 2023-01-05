@@ -4,8 +4,6 @@ import art
 import time
 from datetime import datetime
 
-
-
 # add color to texts.
 class colors:
     pink = '\033[95m'

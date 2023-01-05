@@ -20,9 +20,12 @@ def Del():
             print('=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶=̶')
             print(f'RowID:{rowid} Has been Deleted.')
         elif user_del == no:
-            print('Try Another Row ? :')
-        Del()
+            print(add.colors().cyan + 'Try Another Row ?: '+ add.colors().end)
+            Del()
+        else:
+            print(add.colors().red+'Try Again !!'+add.colors().end)
+            Del()
     except Exception:
-        print('Wrong input please try again !! ')
+        print(add.colors().red+'Wrong input please try again !! '+add.colors().end)
         Del()
-Del()
+
