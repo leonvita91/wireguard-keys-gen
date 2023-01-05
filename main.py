@@ -3,9 +3,7 @@ import subprocess
 import time
 from datetime import datetime
 # import My Code
-import add
-import fetch
-
+import add,fetch,delete
 
 #########** Call functions from add **##########
 # add.Vpn_input() 
@@ -14,9 +12,7 @@ import fetch
 # add.art.cat_done()
 # add.insert_data() 
 
-#########** Call functions from add **##########
-
-# fetch.fetch_username()
+#########** Call functions from fetch **##########
 # fetch.fetch_IP()
 # fetch.fetch_public_key()
 # fetch.fetch_private_key()

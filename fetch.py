@@ -1,4 +1,3 @@
-import pandas as pd
 import add
 
 # functions to fetch all kind of data
