@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import time
+from time import sleep
 
 def creator():
 	print("""  _/|       |\_ """"")
@@ -32,7 +32,7 @@ def cat_search_user():
 	print("""  |  | (   |   Exsiting | /""")
 	print("""  )  |  \  `.__Username_|/""")
 	print("""  `--'   `--" """"")
-	time.sleep(0.5)
+	sleep(0.5)
 
 def cat_search_ips():
 
@@ -47,7 +47,7 @@ def cat_search_ips():
 	print("""  |  | (   |   Exsiting | /""")
 	print("""  )  |  \  `._____IP____|/""")
 	print("""  `--'   `--" """"")
-	time.sleep(0.5)
+	sleep(0.5)
 
 
 

@@ -1,5 +1,5 @@
-import time
 import add
+from time import sleep
 
 # functions to fetch all kind of data
 
@@ -30,16 +30,17 @@ def fetch_all():
     fetch_time):
 
         print('----------------------------------------------------------------------------------------------')
-        print('RowID:',row,
-        'Username: ' + ''.join(user) + ' || ',
-        'Ip_Adress: ' + ''.join(ip) + ' || ',
-        ''.join(pub),
-        ''.join(priv),
-        ''.join(date),
+        print('RowID:',row ,'\n',
+        'Username: ' + ''.join(user) + '\n',
+        'Ip_Adress: ' + ''.join(ip) + '\n',
+        ''.join(pub) + '\n',
+        ''.join(priv) + '\n',
+        ''.join(date) + '\n',
         ''.join(time)) 
-        add.time.sleep(0.2)
+        sleep(0.2)
     print('------------------------------------------------------------------')
     print('\nDone Done Done !!')
+
 
 # fetch username
 def fetch_username():
@@ -50,7 +51,7 @@ def fetch_username():
     for x in fetch:
         print('----------')
         print('RowID:',x)
-        time.sleep(0.2)
+        sleep(0.2)
     print('\nDone Done Done !!')
 
 # fetch ips
@@ -64,7 +65,7 @@ def fetch_IP():
     for x,y in zip(fetch_row,fetch):
             # st = str(x)
             print('RowID:',x,''.join(y))
-            add.time.sleep(0.2)
+            sleep(0.2)
     print('------------')
     print('\nDone Done Done !!')
 
@@ -79,7 +80,7 @@ def fetch_public_key():
     for x , y in zip(fetch_row , fetch):
         print('-------------------------------------------------------------')
         print('RowID:',x,''.join(y))
-        time.sleep(0.2)
+        sleep(0.2)
     print('\nDone Done Done !!\n')
 # fetch Private keys
 def fetch_private_key():
@@ -92,7 +93,7 @@ def fetch_private_key():
     for x , y in zip(fetch_row , fetch):
         print('-------------------------------------------------------------')
         print('RowID:',x,''.join(y))
-        time.sleep(0.2)
+        sleep(0.2)
     print('\nDone Done Done !!\n')
 
 # fetch username and ip
@@ -104,7 +105,7 @@ def fetch_user_and_ip():
     for x , y in zip(fetch_row,fetch):
         print('--------')
         print('RowID:',x,' || '.join(y))
-        add.time.sleep(0.2)
+        sleep(0.2)
     print('--------')
     print('\nDone Done Done !!\n')
 # fetch username & IP & public key
@@ -117,7 +118,7 @@ def fetch_user_ip_public_key():
     for x , y in zip(fetch_row, fetch):
         print('---------------------------------------------------------------------------------')
         print('RowID:',x,' ||   '.join(y))
-        add.time.sleep(0.1)
+        sleep(0.1)
     print('------------------------------------------------------------------------------------')
     print('\nDone Done Done !!\n')
 

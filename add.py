@@ -1,7 +1,7 @@
 import sqlite3
 import subprocess
 import art
-import time
+from time import sleep
 from datetime import datetime
 
 # add color to texts.
@@ -15,6 +15,7 @@ class colors:
     end = '\033[0m'
     bold = '\033[1m'
     uderline = '\033[4m'
+
 
 #initialize database
 create = sqlite3.connect("database.db")
@@ -31,7 +32,7 @@ connect.execute("""CREATE TABLE IF NOT EXISTS VPN (
 # user input username & ip.
 def Vpn_input():
     #define global var
-    global user_name,user_ips,user_public_key,user_private_key,date,time,subnet
+    global user_name,user_ips,user_public_key,user_private_key,dates,times,subnet
     subnet = '/24' #Change subnet mask based on your need.
     #Generate keys
     subprocess.run("wg genkey | tee privatekey | wg pubkey > publickey",
@@ -43,6 +44,8 @@ def Vpn_input():
     now = datetime.now()
     dates = now.strftime("%Y-%m-%d")
     times = now.strftime("%H:%M:%S")
+    # date = dates
+    # time_now = times
     #read keys file
     with open("publickey.txt","r") as pk:
         public = pk.read()
@@ -51,8 +54,6 @@ def Vpn_input():
     #variables stores keys,date,time
     user_public_key = public
     user_private_key = private
-    date = dates
-    time = times
     #User_name_input & user_input ip
     user_name = input(str("Insert username: ")) #15
     user_ips = input(str("Insert IP:"))# 20
@@ -66,13 +67,14 @@ def Vpn_input():
         print('Username_Charactor=',username_len_input,'IP_length=',userip_len_input)
         print(colors.bold,colors.cyan,'\nUSER_NAME 10 CHARACTOR MAX && IPs 15 DIGIT MAX.',colors.end)
         #User_name_input & user_input ip
-        user_name = input(str("Insert username: ")) #15
-        user_ips = input(str("Insert IP:")) #20
+        user_name = input(str("Insert username: ")) #15 char
+        user_ips = input(str("Insert IP:")) #20 number with dots
         # add the lenght inside list.
         username_len_input = len(user_name)
         userip_len_input = len(user_ips)
     # end function.
 
+# insert the input data into database
 def insert_data():
     #insert the values to VPN TABLE
     connect.execute("INSERT INTO VPN VALUES (?,?,?,?,?,?)",
@@ -81,34 +83,39 @@ def insert_data():
     (user_ips + subnet),
     ('Public_key = ' + user_public_key.replace('\n', '')), #replace char \n to normal key
     ('Private_key = ' + user_private_key.replace('\n', '')), #replace char \n to normal key
-    ('Date: ' + date),
-    ('Time: ' + time)
+    ('Date: ' + dates),
+    ('Time: ' + times)
     ))
     create.commit() # Commit into db
     subprocess.run("rm privatekey.txt publickey.txt",shell=True) #delete the keys
 #end function.
 
+# Checking if the username is exist
 def check_username():
     connect.execute("SELECT user_vpn FROM VPN")
     search = connect.fetchall()
     for searchs in search:
         user = "".join(searchs) # convert from tuple to string
         if user == user_name:
+            subprocess.run('clear')
+            art.creator()
+            print(colors().pink + '****Try Again:****' + colors().end)
             art.cat_search_user()
-            print('****Try Again:****')
             Vpn_input() #if the name exist it will return to Vpn_input function again.
             check_username() # checking again
-        else:
-            print('done')
-            break
+        
+
+# Checking if the IP is exist
 def check_ip():
     connect.execute("SELECT user_ips FROM VPN")
     search = connect.fetchall()
     for searchs in search:
         IP = "".join(searchs) # convert from tuple to string
         if IP == (user_ips + subnet):
+            subprocess.run('clear')
+            art.creator()
             art.cat_search_ips()
-            print('****Try Again:****')
+            print(colors().pink + '****Try Again:****' + colors().end)
             Vpn_input()
             check_ip()
 
