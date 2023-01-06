@@ -15,6 +15,8 @@ class colors:
     end = '\033[0m'
     bold = '\033[1m'
     uderline = '\033[4m'
+def clean():
+    subprocess.run('clear')
 
 
 #initialize database
@@ -97,7 +99,7 @@ def check_username():
     for searchs in search:
         user = "".join(searchs) # convert from tuple to string
         if user == user_name:
-            subprocess.run('clear')
+            clean()
             art.creator()
             print(colors().pink + '****Try Again:****' + colors().end)
             art.cat_search_user()
@@ -112,7 +114,7 @@ def check_ip():
     for searchs in search:
         IP = "".join(searchs) # convert from tuple to string
         if IP == (user_ips + subnet):
-            subprocess.run('clear')
+            clean()
             art.creator()
             art.cat_search_ips()
             print(colors().pink + '****Try Again:****' + colors().end)
