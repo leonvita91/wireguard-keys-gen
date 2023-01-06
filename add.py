@@ -77,8 +77,8 @@ def insert_data():
     #insert the values to VPN TABLE
     connect.execute("INSERT INTO VPN VALUES (?,?,?,?,?,?)",
     (
-    ('username: ' + user_name),
-    ('IP_addr: ' + user_ips + subnet),
+    (user_name),
+    (user_ips + subnet),
     ('Public_key = ' + user_public_key.replace('\n', '')), #replace char \n to normal key
     ('Private_key = ' + user_private_key.replace('\n', '')), #replace char \n to normal key
     ('Date: ' + date),

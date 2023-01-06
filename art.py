@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import time
 
 def creator():
 	print("""  _/|       |\_ """"")

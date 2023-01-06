@@ -14,9 +14,11 @@ try:
     # add.check_username() 
     # add.check_ip() 
     # add.art.cat_done()
-    # add.insert_data() 
+    # add.insert_data()
+
 
 #########** Call functions from fetch **##########
+    fetch.fetch_all()
     # fetch.fetch_IP()
     # fetch.fetch_public_key()
     # fetch.fetch_private_key()
