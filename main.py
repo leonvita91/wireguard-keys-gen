@@ -12,17 +12,29 @@ try:
     def create():
         add.clean()
         add.art.creator()
-        print("""                    |=======================================================================|
-                    |         This section will add new user + IP + keys :                  |
-                    | Finally it will check the Username and Ip Addres if exist in Database |
-                    |=======================================================================| """)
-        add.Vpn_input()
-        add.check_username()
-        add.check_ip()
-        add.insert_data()
-        print('Done Done Done')
+        add.art.section()
+        print('>.1 Create new user.\n>.2 Check exsiting username & IP\n>.3 menu\n>.4 Exit')
+        dec = int(input('Choose one of the Options: '))
+        if dec == 1:
+            add.Vpn_input()
+            add.check_username()
+            add.check_ip()
+            add.insert_data()
+        elif dec == 2:
+            add.Vpn_input()
+            add.check_username()
+            add.check_ip()
+            add.art.not_exis()
+        elif dec == 3:
+            menus()
+        elif dec == 4:
+            exit()
+        else:
+            exit()
+        add.art.done()
+
         sleep(1)
-        menus()
+        # menus()
 
     def call():
         pass
@@ -38,7 +50,11 @@ try:
         dec = int(input('Choose one of the Options: '))
         if dec == 1:
             create()
-        if dec == 4:
+        elif dec == 2:
+            call()
+        elif dec == 3:
+            remove()
+        elif dec == 4:
             print('Good Bye....')
             exit()
         else:

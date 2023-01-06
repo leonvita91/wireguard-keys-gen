@@ -63,7 +63,6 @@ def fetch_IP():
     print('Start fetching........\n'
           '------------------')
     for x,y in zip(fetch_row,fetch):
-            # st = str(x)
             print('RowID:',x,''.join(y))
             sleep(0.2)
     print('------------')
