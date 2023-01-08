@@ -28,4 +28,3 @@ def Del():
     except Exception:
         print(add.colors().red+'Wrong input please try again !! '+add.colors().end)
         Del()
-

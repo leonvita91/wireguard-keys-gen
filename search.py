@@ -1,9 +1,15 @@
 import add
 
 class Searching():
+    # initializing
     def __init__(self):
-        # initializing
+        #logo
+        add.clean()
+        add.art.creator()
+        #call search by ID method
         self.user_search()
+    
+    # Search by ID inside columns.
     def user_search(self):
         print('Search by Column & ID')
         print("""
@@ -14,29 +20,35 @@ class Searching():
         >.4 private_key
         """
         )
-        self.row = int(input('Which Column: '))
-        if self.row == 1:
-            self.take = "user_vpn"
-        elif self.row == 2:
-            self.take = "user_ips"
-        elif self.row == 3:
-            self.take = "public_key"
-        elif self.row == 4:
-            self.take = "private_key"
-        else:
-            print('wrong input')
-        
-        self.id = int(input('Which ID: '))
-        self.exe = add.connect.execute(f"SELECT {self.take} FROM VPN WHERE rowid = (?)",(self.id,))
-        self.fetching = add.connect.fetchall()
-        self.loop()
+        try:
+            self.row = int(input('Which Column: '))
+            if self.row == 1:
+                self.take = "user_vpn"
+            elif self.row == 2:
+                self.take = "user_ips"
+            elif self.row == 3:
+                self.take = "public_key"
+            elif self.row == 4:
+                self.take = "private_key"
+            else:
+                print('wrong input')
+            self.id = int(input('Which ID: '))
+            self.exe = add.connect.execute(f"SELECT {self.take} FROM VPN WHERE rowid = (?)",(self.id,))
+            self.fetching = add.connect.fetchall()
+            self.loop()
+        except Exception:
+            print('Oops Wrong input\nExting.....')
+            exit()
+    
+    # looping inside db
     def loop(self):
         for x in self.fetching:
             print(x)
-        
 
+    # searching by anything
+    # To be continue xd    
 
-
+test = Searching() #used only for testing
 
 
 # example class with methods and object and inhert.
