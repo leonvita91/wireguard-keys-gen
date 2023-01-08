@@ -2,26 +2,69 @@ import add
 
 class Searching():
     def __init__(self):
-        self.id = int(input('ID Row searching: '))
-        self.take = add.connect.execute(f"SELECT user_vpn FROM VPN Where rowid = (?)",(self.id,))
-        self.call = add.connect.fetchall()
-        # self.ser = ser
+        # initializing
+        self.user_search()
+    def user_search(self):
+        print("""
+        Columns Names:
+        >.1 user_vpn
+        >.2 user_ips
+        >.3 public_key
+        >.4 private_key
+        """
+        )
+        self.row = int(input('Which Column: '))
+        if self.row == 1:
+            self.take = "user_vpn"
+        elif self.row == 2:
+            self.take = "user_ips"
+        elif self.row == 3:
+            self.take = "public_key"
+        elif self.row == 4:
+            self.take = "private_key"
+        else:
+            print('wrong input')
+        
+        self.id = int(input('Which ID: '))
+        self.exe = add.connect.execute(f"SELECT {self.take} FROM VPN WHERE rowid = (?)",(self.id,))
+        self.find = add.connect.fetchall()
         self.loop()
-        self.calling()
-    
     def loop(self):
-        # add.connect.execute(f"SELECT rowid ,  user_vpn FROM VPN WHERE user_vpn like (?)",(self.ser,))
-        for x in self.call:
+        for x in self.find:
             print(x)
-        print('stop')
+        
     
-    def calling(self):
-        self.id
-        self.take
-        self.call
-        for s in self.call:
-            print(s,'second search')
-out = Searching()
+output = Searching()
+
+
+
+# example class with methods and object and inhert.
+# class Searching():
+#     def __init__(self):
+#         self.id = int(input('ID Row searching: '))
+#     def ser(self):
+#         self.take = add.connect.execute(f"SELECT user_vpn FROM VPN Where rowid = (?)",(self.id,))
+#         self.call = add.connect.fetchall()
+#         # self.ser = ser
+#         self.loop()
+#     def loop(self):
+#         # add.connect.execute("SELECT rowid ,  user_vpn FROM VPN WHERE user_vpn like (?)",(self.ser,))
+#         for x in self.call:
+#             print(x)
+#         print('stop')
+    
+# class Searching2(Searching):
+#     def __init__(self):
+#         super().__init__()
+#         super().ser()
+#         self.id = int(input('second input'))
+#         self.ser()
+# out1 = Searching2()
+
+# add.connect.execute("SELECT rowid, user_vpn FROM VPN")
+# t = add.connect.fetchall()
+# for x in t:
+#     print(x)
 
 
 
