@@ -5,6 +5,7 @@ class Searching():
         # initializing
         self.user_search()
     def user_search(self):
+        print('Search by Column & ID')
         print("""
         Columns Names:
         >.1 user_vpn
@@ -27,14 +28,14 @@ class Searching():
         
         self.id = int(input('Which ID: '))
         self.exe = add.connect.execute(f"SELECT {self.take} FROM VPN WHERE rowid = (?)",(self.id,))
-        self.find = add.connect.fetchall()
+        self.fetching = add.connect.fetchall()
         self.loop()
     def loop(self):
-        for x in self.find:
+        for x in self.fetching:
             print(x)
         
-    
-output = Searching()
+
+
 
 
 

@@ -4,6 +4,7 @@ from time import sleep
 from datetime import datetime
 # import My Code
 import add,fetch,delete
+import search as find
 
 
 #Exting handle
@@ -40,7 +41,7 @@ try:
             menus()
             sleep(1)
         except Exception:
-            print('Bad input try on of numbers above !!')
+            print('Bad input try one of numbers above !!')
             sleep(2)
             menus()
 
@@ -65,13 +66,14 @@ try:
         add.clean()
         add.art.creator()
         print('What Would You Like To Do ?')
-        print('>.1 Create new user.\n>.2 Fetch Info\n>.3 Delete Info\n>.4 Exit')
+        print('>.1 Create new user.\n>.2 Fetch Info\n>.3 Delete Info\n>.4 Search Info\n>.5 Exit')
         # user decision:
         dec = int(input('Choose one of the Options: '))
         dec == 1 and create()
         dec == 2 and call()
         dec == 3 and remove()
-        dec == 4 and print('Good Bye....') , exit()
+        dec == 4 and find.Searching()
+        dec == 5 and print('Good Bye....') , exit()
     menus()
 
 
