@@ -6,7 +6,6 @@ from datetime import datetime
 import add,fetch,delete
 import search as find
 
-
 #Exting handle
 try:    
     # create and check function

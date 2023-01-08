@@ -1,23 +1,37 @@
 #!/usr/bin/env python3
 from time import sleep
+import add
+
+
 
 def creator():
-	print("""  _/|       |\_ """"")
-	print(""" /  |       |  \ """"")
-	print("""|    \     /    | """"")
-	print("""|  \ /     \ /  | """"")
-	print("""| \  |     |  / | """"")
-	print("""| \ _\_/^\_/_ / | """"")
-	print("""|    --\//--    | """"")
-	print(""" \_  \     /  _/ """"")
-	print("""   \__  |  __/ """"")
-	print("""      \ _ / """"")
-	print("""     _/   \_   Created By:█░░ █▀▀ █▀▀█ █▀▀▄ 
-    / _/|\_ \	      	  █░░ █▀▀ █░░█ █░░█ 
-    / _/|\_ \	          ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░▀ """"")
-	print("""    / _/|\_ \  Github:leonvita91 """"")
-	print("""     /  |  \   Project:VPN_Clients_Generator """)
-	print("""      / v \	""""")
+	print(add.colors.green,"""
+                       b
+                      g           bug
+                      u        bug
+      bugbug          b       g
+            bug      bugbug bu
+               bug  bugbugbugbugbugbug
+  bug   bug   bugbugbugbugbugbugbugbugb
+     bug   bug bugbugbugbugbugbugbugbugbu
+   bugbugbugbu gbugbugbugbugbugbugbugbugbu
+  bugbugbugbug  
+   bugbugbugbu gbugbugbugbugbugbugbugbugbu
+     bug   bug bugbugbugbugbugbugbugbugbu
+  bug   bug  gbugbugbugbugbugbugbugbugb
+               bug  bugbugbugbugbugbug
+            bug      bugbug  bu
+      bugbug          b        g
+	               g        c
+			b        d
+	========================================
+			Created By: Bug
+	Name:leon                    			
+    	Github: leonvita91                      
+    	Project:Generate Wireguard users & keys 
+	========================================
+	
+	""",add.colors.end)
 
 def cat_search_user(): 
 
