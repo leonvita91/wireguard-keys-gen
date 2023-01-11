@@ -71,7 +71,7 @@ try:
         dec == 1 and create()
         dec == 2 and call()
         dec == 3 and remove()
-        dec == 4 and find.Searching()
+        dec == 4 and find.Searching_Row()
         dec == 5 and print('Good Bye....') , exit()
     menus()
 

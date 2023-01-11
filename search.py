@@ -11,9 +11,16 @@ class Searching_Row():
         #logo
         add.clean()
         add.art.creator()
+        self.search_menu()
         #call search by ID method)        
+    def search_menu(self):
+        print("""
+        Pick one of options:
+        >.1 Searching by RowID
+        """)
         self.user_search()
         self.search_any()
+
 
     #to search inside column    
     def inside_column(self):
@@ -98,7 +105,6 @@ class Searching_any(Searching_Row):
         self.exe =  add.connect.execute(f"SELECT {self.take} FROM VPN WHERE {self.pick}  like (?)",('%' + self.user_find_word,))
         self.loop()
 
-output = Searching_any()
 
 
 
