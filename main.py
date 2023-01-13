@@ -59,7 +59,9 @@ try:
         dec == 7 and fetch.fetch_user_ip_public_key()
     
     def remove():
-        pass
+        add.clean()
+        add.art.creator()
+        delete.Del()
     
     def menus():
         add.clean()
