@@ -11,15 +11,18 @@ class Searching_Row():
         #logo
         add.clean()
         add.art.creator()
-        self.search_menu()
-        #call search by ID method)        
-    def search_menu(self):
-        print("""
-        Pick one of options:
-        >.1 Searching by RowID
-        """)
-        self.user_search()
+        # self.user_search()
         self.search_any()
+        #call search by ID method)
+    # def search_menu(self):
+    #     print("""
+    #     Pick one of options:
+    #     >.1 Searching by RowID
+    #     >.2 Searching inside Colmn by another Colmn
+    #     """)
+    #     self.user_dec = int(input())
+    #     self.user_dec == 1 and self.user_search()
+    #     # self.user_dec == 2 and 
 
 
     #to search inside column    
@@ -65,7 +68,7 @@ class Searching_Row():
         try:
             if self.by_col == 1:
                 print(add.colors().green,add.colors().uderline,
-                '\nNote: Searching by username\nOR\nSearching by only letters',
+                """\nNote:\nSearching by username\nOR\nSearching by letters""",
                 add.colors().end)
                 self.pick = "user_vpn"
 
@@ -94,7 +97,7 @@ class Searching_Row():
         self.fetching = add.connect.fetchall()
         for x in self.fetching:
             print(x)
-
+        
 # Class for searching anything by expacting word or number.
 class Searching_any(Searching_Row):
     def search_any(self):
@@ -105,6 +108,7 @@ class Searching_any(Searching_Row):
         self.exe =  add.connect.execute(f"SELECT {self.take} FROM VPN WHERE {self.pick}  like (?)",('%' + self.user_find_word,))
         self.loop()
 
+Searching_any()
 
 
 
