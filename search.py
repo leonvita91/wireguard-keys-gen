@@ -1,5 +1,7 @@
 import add
 
+
+
 #infrastructure
 #menu class
 #class for searching in db with RowID
@@ -11,18 +13,17 @@ class Searching_Row():
         #logo
         add.clean()
         add.art.creator()
-        # self.user_search()
-        self.search_any()
-        #call search by ID method)
-    # def search_menu(self):
-    #     print("""
-    #     Pick one of options:
-    #     >.1 Searching by RowID
-    #     >.2 Searching inside Colmn by another Colmn
-    #     """)
-    #     self.user_dec = int(input())
-    #     self.user_dec == 1 and self.user_search()
-    #     # self.user_dec == 2 and 
+        #user Seaching_menu 
+        print("""Searching Menu\n
+        \n>.1 Searching by ID\n>.2 Searching by anything by Column\n>.3 Exit""")
+        self.dec_user = int(input('Choose: '))
+        self.dec_user == 1 and self.user_search()
+        self.dec_user == 2 and self.search_any()
+        self.dec_user == 3 and exit()
+  
+
+
+    
 
 
     #to search inside column    
@@ -108,37 +109,30 @@ class Searching_any(Searching_Row):
         self.exe =  add.connect.execute(f"SELECT {self.take} FROM VPN WHERE {self.pick}  like (?)",('%' + self.user_find_word,))
         self.loop()
 
-Searching_any()
 
-
-
-# example class with methods and object and inhert.
-# class Searching():
-#     def __init__(self):
-#         self.id = int(input('ID Row searching: '))
-#     def ser(self):
-#         self.take = add.connect.execute(f"SELECT user_vpn FROM VPN Where rowid = (?)",(self.id,))
-#         self.call = add.connect.fetchall()
-#         # self.ser = ser
-#         self.loop()
-# #     def loop(self):
-#         add.connect.execute("SELECT rowid ,  user_vpn FROM VPN WHERE public_key like (?)",(self.ser,))
-#         for x in self.call:
-#             print(x)
-#         print('stop')
-    
-# class Searching2(Searching):
-#     def __init__(self):
-#         super().__init__()
-#         super().ser()
-#         self.id = int(input('second input'))
-#         self.ser()
-# out1 = Searching2()
-
-# add.connect.execute("SELECT rowid, user_vpn FROM VPN")
-# t = add.connect.fetchall()
-# for x in t:
-#     print(x)
-
+#                     b
+#                       g           bug
+#                       u        bug
+#       bugbug          b       g
+#             bug      bugbug bu
+#                bug  bugbugbugbugbugbug
+#   bug   bug   bugbugbugbugbugbugbugbugb
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#   bugbugbugbug  
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#   bug   bug  gbugbugbugbugbugbugbugbugb
+#                bug  bugbugbugbugbugbug
+#             bug      bugbug  bu
+#       bugbug          b        g
+# 	               g        c
+# 			b        d
+# 	========================================
+# 			Created By: Bug
+# 	Name:leon                    			
+#     	Github: leonvita91                      
+#     	Project:Generate Wireguard users & keys 
+# 	========================================
 
 

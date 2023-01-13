@@ -28,3 +28,29 @@ def Del():
     except Exception:
         print(add.colors().red+'Wrong input please try again !! '+add.colors().end)
         Del()
+
+
+                    # b
+#                       g           bug
+#                       u        bug
+#       bugbug          b       g
+#             bug      bugbug bu
+#                bug  bugbugbugbugbugbug
+#   bug   bug   bugbugbugbugbugbugbugbugb
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#   bugbugbugbug  
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#   bug   bug  gbugbugbugbugbugbugbugbugb
+#                bug  bugbugbugbugbugbug
+#             bug      bugbug  bu
+#       bugbug          b        g
+# 	               g        c
+# 			b        d
+# 	========================================
+# 			Created By: Bug
+# 	Name:leon                    			
+#     	Github: leonvita91                      
+#     	Project:Generate Wireguard users & keys 
+# 	========================================

@@ -123,11 +123,27 @@ def check_ip():
 
 
 
-
-
-#--------------------------NOTES---------------------------
-#Close the db after finishing
-#create.close()
-    #Notes:
-    #if you want to search something in specific table and column
-    #connect.execute("SELECT * FROM VPN WHERE user_vpn == (?)",(user_name,))
+                    # b
+#                       g           bug
+#                       u        bug
+#       bugbug          b       g
+#             bug      bugbug bu
+#                bug  bugbugbugbugbugbug
+#   bug   bug   bugbugbugbugbugbugbugbugb
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#   bugbugbugbug  
+#    bugbugbugbu gbugbugbugbugbugbugbugbugbu
+#      bug   bug bugbugbugbugbugbugbugbugbu
+#   bug   bug  gbugbugbugbugbugbugbugbugb
+#                bug  bugbugbugbugbugbug
+#             bug      bugbug  bu
+#       bugbug          b        g
+# 	               g        c
+# 			b        d
+# 	========================================
+# 			Created By: Bug
+# 	Name:leon                    			
+#     	Github: leonvita91                      
+#     	Project:Generate Wireguard users & keys 
+# 	========================================
