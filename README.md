@@ -2,7 +2,7 @@
 
 ## The goal of this project
 ``` 
-I created this program becuase i have to do all the time WG-gen for clients on my VPN,
+I created this program because i have to do all the time WG-gen for clients on my VPN,
 instead when i put just a username with any ip it will generate automatically public
 and privat keys and store everything into database rather than store it in text file,
 also i did added some nice features like checking the username and ip if exist,
